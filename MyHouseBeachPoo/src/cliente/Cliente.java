@@ -3,12 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package cliente;
+import java.util.List;
+
+import usuario.Usuario;
+import telefone.Telefone;
 
 /**
  *
  * @author conta
  */
-public class Cliente {
+public class Cliente extends Usuario {
     private int id;
     private String nome;
     private String email;
@@ -18,6 +22,7 @@ public class Cliente {
     private String estado;
     private String login;
     private String senha;
+    private List<Telefone> Telefones;
 
     /**
      * @return the id
