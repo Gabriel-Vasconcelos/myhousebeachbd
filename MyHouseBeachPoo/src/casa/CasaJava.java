@@ -20,6 +20,7 @@ public class CasaJava {
             System.out.println("1 - Inserir uma nova casa");
             System.out.println("2 - Buscar por uma casa");
             System.out.println("3 - Listar todos as casas");
+            System.out.println("0 - Saiiir");
             
             int opcao = Integer.parseInt(scanner.nextLine());
            
@@ -55,7 +56,7 @@ public class CasaJava {
         List<Casa> casas = casaDAO.obterTodos();
         
         for(Casa c : casas){
-            System.out.println(" ID: " + c.getId() + "\n Título: " + c.getTitulo() + "\n Preço: " + c.getPreco() + "\n Endereço: " + c.getEndereco());
+            System.out.println(" ID: " + c.getId() + "\n Título: " + c.getTitulo() + "\n Preço: " + c.getPreco() + "\n Endereço Comp: " + c.getEnderecoComp());
             System.out.println("------------------");
         }
         
@@ -75,7 +76,7 @@ public class CasaJava {
         if(casa == null){
             System.out.println("Casa de ID " + id + " não foi encontrada");
         }else{
-            System.out.println(" ID: " + casa.getId() + "\n Título: " + casa.getTitulo() + "\n Preço: " + casa.getPreco() + "\n QTD de Quartos: " + casa.getQtd_quarto() + "\n QTD de Banheiros: " + casa.getQtd_banheiro()+ "\n Foto: " + casa.getFoto()+ "\n Endereços: " + casa.getEndereco() + "\n Cidade: " + casa.getCidade() + "\n Estado: " + casa.getEstado());
+            System.out.println(" ID: " + casa.getId() + "\n Título: " + casa.getTitulo() + "\n Preço: " + casa.getPreco() + "\n QTD de Quartos: " + casa.getQtd_quarto() + "\n QTD de Banheiros: " + casa.getQtd_banheiro()+ "\n Foto: " + casa.getFoto()+ "\n Endereço Comp: " + casa.getEnderecoComp());
         }
     } 
     

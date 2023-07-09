@@ -91,7 +91,7 @@ public class TelefoneJava {
         List<Telefone> telefones = telefoneDAO.obter(id);
         
         for(Telefone t : telefones){
-            System.out.println(" ID: " + t.getId() + "\n Cliente ID: " + t.getCliente_id() + "\n DDD: " + t.getDdd() + "\n Número: " + t.getNumero());
+            System.out.println(" ID: " + t.getId() + "\n Cliente Nome(ID): " + t.getNomeCliente() + "(" + t.getCliente_id() + ")\n DDD: " + t.getDdd() + "\n Número: " + t.getNumero());
             System.out.println("------------------");
         }
         

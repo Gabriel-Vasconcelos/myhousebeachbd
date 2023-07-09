@@ -4,6 +4,8 @@
  */
 package telefone;
 
+import cliente.Cliente;
+
 /**
  *
  * @author conta
@@ -13,7 +15,20 @@ public class Telefone {
     private int cliente_id;
     private int ddd;
     private int numero;
-
+    private Cliente cliente;
+    
+    public Telefone(){
+        this.cliente = new Cliente();
+    }
+    
+    public String getNomeCliente(){
+        return cliente.getNome();
+    }
+    
+    public void setNomeCliente(String nome){
+        cliente.setNome(nome);
+    }
+    
     /**
      * @return the id
      */

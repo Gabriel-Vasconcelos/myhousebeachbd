@@ -20,7 +20,7 @@ public class ClienteDAO {
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/myhousebeachbd";
     private static final String USUARIO = "postgres";
-    private static final String SENHA = "codi123";
+    private static final String SENHA = "123456";
     
     
     public boolean inserir(int id, String nome, String cpf, String email, String endereco, String cidade, String estado, String login, String senha){
@@ -98,7 +98,7 @@ public class ClienteDAO {
         try{
             Class.forName(DRIVER);
             Connection c = DriverManager.getConnection(URL, USUARIO, SENHA);
-            PreparedStatement ps = c.prepareStatement("SELECT nome, email, login, cpf FROM cliente WHERE id = ?");
+            PreparedStatement ps = c.prepareStatement("SELECT nome, email, login, cpf, endereco, cidade, estado FROM cliente WHERE id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             
@@ -109,6 +109,7 @@ public class ClienteDAO {
                 cliente.setEmail(rs.getString("email"));
                 cliente.setLogin(rs.getString("login"));
                 cliente.setCpf(rs.getString("cpf"));
+                cliente.setEnderecoComp(rs.getString("endereco"), rs.getString("cidade"), rs.getString("estado"));
             }
             rs.close();
             ps.close();

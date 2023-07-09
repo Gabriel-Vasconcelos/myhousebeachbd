@@ -22,7 +22,7 @@ public class DonoDaCasaDAO extends ClienteDAO{
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/myhousebeachbd";
     private static final String USUARIO = "postgres";
-    private static final String SENHA = "codi123";
+    private static final String SENHA = "123456";
     
     
     public boolean inserir(int clienteId, int casaId){

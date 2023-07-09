@@ -3,27 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package cliente;
+
 import java.util.List;
 
-import usuario.Usuario;
-import telefone.Telefone;
+import enderecocomp.EnderecoComp;
+
 
 /**
  *
  * @author conta
  */
-public class Cliente extends Usuario {
+public class Cliente {
     private int id;
     private String nome;
     private String email;
     private String cpf;
-    private String endereco;
-    private String cidade;
-    private String estado;
+    private EnderecoComp enderecoComp;
     private String login;
     private String senha;
-    private List<Telefone> Telefones;
-
+    
+    public Cliente(){
+        this.enderecoComp = new EnderecoComp();
+    }
+    
+    
+    public String getEnderecoComp(){
+        return enderecoComp.getEndereco() + "," + enderecoComp.getCidade() + "-" + enderecoComp.getEstado();
+    }
+    
+    public void setEnderecoComp(String endereco, String cidade, String estado){
+        enderecoComp.setEndereco(endereco);
+        enderecoComp.setCidade(cidade);
+        enderecoComp.setEstado(estado);
+    }
+    
     /**
      * @return the id
      */
@@ -79,49 +92,7 @@ public class Cliente extends Usuario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
-    /**
-     * @return the endereco
-     */
-    public String getEndereco() {
-        return endereco;
-    }
-
-    /**
-     * @param endereco the endereco to set
-     */
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    /**
-     * @return the cidade
-     */
-    public String getCidade() {
-        return cidade;
-    }
-
-    /**
-     * @param cidade the cidade to set
-     */
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    /**
-     * @return the estado
-     */
-    public String getEstado() {
-        return estado;
-    }
-
-    /**
-     * @param estado the estado to set
-     */
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
+    
     /**
      * @return the login
      */

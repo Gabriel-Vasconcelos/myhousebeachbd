@@ -108,7 +108,7 @@ public class ClienteJava {
         if(cliente == null){
             System.out.println("Cliente de ID " + id + " não foi encontrada");
         }else{
-            System.out.println(" ID: " + cliente.getId() + "\n Nome: " + cliente.getNome() + "\n Email: " + cliente.getEmail() + "\n Login: " + cliente.getLogin() + "\n CPF: " + cliente.getCpf());
+            System.out.println(" ID: " + cliente.getId() + "\n Nome: " + cliente.getNome() + "\n Email: " + cliente.getEmail() + "\n Login: " + cliente.getLogin() + "\n CPF: " + cliente.getCpf() + "\n Endereço Completo: " + cliente.getEnderecoComp());
         }
         
     }

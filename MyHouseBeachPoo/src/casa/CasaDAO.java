@@ -19,7 +19,7 @@ public class CasaDAO {
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/myhousebeachbd";
     private static final String USUARIO = "postgres";
-    private static final String SENHA = "codi123";
+    private static final String SENHA = "123456";
     
     public boolean inserir(int id, String titulo, int preco, int qtdQuarto, int qtdBanheiro, String foto, String endereco, String cidade, String estado){
         boolean sucesso = false;
@@ -71,9 +71,8 @@ public class CasaDAO {
                 casa.setQtd_quarto(rs.getInt("qtd_quarto"));
                 casa.setQtd_banheiro(rs.getInt("qtd_banheiro"));
                 casa.setFoto(rs.getString("foto"));
-                casa.setEndereco(rs.getString("endereco"));
-                casa.setCidade(rs.getString("cidade"));
-                casa.setEstado(rs.getString("estado"));
+                casa.setEnderecoComp(rs.getString("endereco"), rs.getString("cidade"), rs.getString("estado"));
+                
             }
             
             rs.close();
@@ -94,7 +93,7 @@ public class CasaDAO {
         try {
          Class.forName(DRIVER);
          Connection c = DriverManager.getConnection(URL, USUARIO, SENHA);
-         PreparedStatement ps = c.prepareStatement("SELECT id, titulo, preco, endereco FROM casa");   
+         PreparedStatement ps = c.prepareStatement("SELECT id, titulo, preco, endereco, cidade, estado FROM casa");   
          ResultSet rs = ps.executeQuery();
          
          while(rs.next()){
@@ -102,7 +101,7 @@ public class CasaDAO {
             casa.setId(rs.getInt("id"));
             casa.setTitulo(rs.getString("titulo"));
             casa.setPreco(rs.getInt("preco"));
-            casa.setEndereco(rs.getString("endereco"));
+            casa.setEnderecoComp(rs.getString("endereco"), rs.getString("cidade"), rs.getString("estado"));
             casas.add(casa);
          }
          

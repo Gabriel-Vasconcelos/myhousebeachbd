@@ -5,6 +5,7 @@
 package donodacasa;
 
 import cliente.Cliente;
+import casa.Casa;
 
 /**
  *
@@ -13,7 +14,20 @@ import cliente.Cliente;
 public class DonoDaCasa extends Cliente{
      private int casa_id;
      private int cliente_id;
+     private Casa casa;
 
+     public DonoDaCasa(){
+         this.casa = new Casa();
+     }
+     
+     public String getCasaTitulo(){
+         return casa.getTitulo();
+     }
+     
+     public void setCasaTitulo(String titulo){
+         casa.setTitulo(titulo);;
+     }
+     
     /**
      * @return the casa_id
      */
