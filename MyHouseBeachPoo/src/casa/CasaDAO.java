@@ -4,6 +4,9 @@
  */
 package casa;
 
+import dao.InterfaceDao;
+import dao.Dao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,11 +18,7 @@ import java.util.List;
  *
  * @author conta
  */
-public class CasaDAO {
-    private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "jdbc:postgresql://localhost:5432/myhousebeachbd";
-    private static final String USUARIO = "postgres";
-    private static final String SENHA = "123456";
+public class CasaDAO extends Dao implements InterfaceDao {
     
     public boolean inserir(int id, String titulo, int preco, int qtdQuarto, int qtdBanheiro, String foto, String endereco, String cidade, String estado){
         boolean sucesso = false;
@@ -53,6 +52,7 @@ public class CasaDAO {
         return sucesso;
     }
     
+    @Override
     public Casa obter(int id){
         Casa casa = null;
         
@@ -87,6 +87,7 @@ public class CasaDAO {
         return casa;
     }
     
+    @Override
     public List<Casa> obterTodos(){
         List<Casa> casas = new ArrayList<Casa>();
          

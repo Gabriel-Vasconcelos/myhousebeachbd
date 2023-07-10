@@ -4,6 +4,9 @@
  */
 package telefone;
 
+import dao.InterfaceDao;
+import dao.Dao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,11 +18,7 @@ import java.util.List;
  *
  * @author conta
  */
-public class TelefoneDAO {
-    private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "jdbc:postgresql://localhost:5432/myhousebeachbd";
-    private static final String USUARIO = "postgres";
-    private static final String SENHA = "123456";
+public class TelefoneDAO extends Dao implements InterfaceDao {
     
     public boolean inserir(int clienteId, int id, int ddd, int numero){
         boolean sucesso = false;
@@ -48,6 +47,7 @@ public class TelefoneDAO {
         return sucesso;
     }
     
+    @Override
     public List<Telefone> obter(int clienteId){
         List<Telefone> telefones = new ArrayList<Telefone>();
 
@@ -84,6 +84,7 @@ public class TelefoneDAO {
        
     }
     
+    @Override
     public List<Telefone> obterTodos(){
         List<Telefone> telefones = new ArrayList<Telefone>();
 
@@ -140,7 +141,7 @@ public class TelefoneDAO {
         
         return sucesso;
     }
-        
+    
     public boolean remover(int id){
         boolean sucesso = false;
         

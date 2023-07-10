@@ -11,16 +11,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.Dao;
+import dao.InterfaceDao;
 /**
  *
  * @author conta
  */
-public class ClienteDAO {
+public class ClienteDAO extends Dao implements InterfaceDao {
     
-    private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "jdbc:postgresql://localhost:5432/myhousebeachbd";
-    private static final String USUARIO = "postgres";
-    private static final String SENHA = "123456";
     
     
     public boolean inserir(int id, String nome, String cpf, String email, String endereco, String cidade, String estado, String login, String senha){
@@ -58,7 +56,7 @@ public class ClienteDAO {
         return sucesso;
     }
     
-        
+    @Override
     public List<Cliente> obterTodos(){
         List<Cliente> clientes = new ArrayList<Cliente>();
          
@@ -92,6 +90,7 @@ public class ClienteDAO {
     }
         
     
+    @Override
     public Cliente obter(int id){
         Cliente cliente = null;
         
