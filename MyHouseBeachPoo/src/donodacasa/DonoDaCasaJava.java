@@ -5,7 +5,10 @@
 package donodacasa;
 
 
+import cliente.Cliente;
 import cliente.ClienteJava;
+import cliente.ClienteDAO;
+
 import static cliente.ClienteJava.atualizarCliente;
 import static cliente.ClienteJava.buscarCliente;
 import static cliente.ClienteJava.inserirCliente;
@@ -111,7 +114,7 @@ public class DonoDaCasaJava extends ClienteJava {
         int clienteId = Integer.parseInt(scanner.nextLine());
         
         DonoDaCasaDAO donoDaCasaDAO = new DonoDaCasaDAO();
-        DonoDaCasa donoDaCasa = donoDaCasaDAO.obter(clienteId);
+        DonoDaCasa donoDaCasa = donoDaCasaDAO.obterRelacaoDono(clienteId);
         
         if(donoDaCasa == null){
             System.out.println("Dono da Casa associado ao ID " + clienteId + " não foi encontrada");

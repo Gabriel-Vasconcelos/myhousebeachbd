@@ -37,8 +37,6 @@ public class ClienteDAO extends Dao implements InterfaceDao {
             ps.setString(7, estado);
             ps.setString(8, login);
             ps.setString(9, senha);
-          
-            
             
             sucesso = (ps.executeUpdate() == 1);
             

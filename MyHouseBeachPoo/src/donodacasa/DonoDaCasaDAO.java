@@ -5,6 +5,7 @@
 package donodacasa;
 
 import cliente.ClienteDAO;
+import cliente.Cliente;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,11 +20,6 @@ import java.util.List;
  * @author conta
  */
 public class DonoDaCasaDAO extends ClienteDAO{
-    private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "jdbc:postgresql://localhost:5432/myhousebeachbd";
-    private static final String USUARIO = "postgres";
-    private static final String SENHA = "123456";
-    
     
     public boolean inserir(int clienteId, int casaId){
         boolean sucesso = false;
@@ -34,8 +30,6 @@ public class DonoDaCasaDAO extends ClienteDAO{
             
             ps.setInt(1, clienteId);
             ps.setInt(2, casaId);
-          
-            
             
             sucesso = (ps.executeUpdate() == 1);
             
@@ -52,7 +46,39 @@ public class DonoDaCasaDAO extends ClienteDAO{
         return sucesso;
     }
     
-    public DonoDaCasa obter(int ClientId){
+    @Override
+    public Cliente obter(int id){
+        Cliente dono = null;
+        
+        try{
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USUARIO, SENHA);
+            PreparedStatement ps = c.prepareStatement("SELECT nome, email, login, cpf, endereco, cidade, estado FROM cliente WHERE id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                dono = new DonoDaCasa();
+                dono.setId(id);
+                dono.setNome(rs.getString("nome"));
+                dono.setEmail(rs.getString("email"));
+                dono.setLogin(rs.getString("login"));
+                dono.setCpf(rs.getString("cpf"));
+                dono.setEnderecoComp(rs.getString("endereco"), rs.getString("cidade"), rs.getString("estado"));
+            }
+            rs.close();
+            ps.close();
+            c.close();
+
+        }catch (Exception ex) {
+            System.out.println("METHOD obter do cliente - " + ex);
+            dono = null;
+        }
+        return dono;
+    }
+    
+    
+    public DonoDaCasa obterRelacaoDono(int ClientId){
         DonoDaCasa donoDaCasa = null;
         
         try {
@@ -79,8 +105,6 @@ public class DonoDaCasaDAO extends ClienteDAO{
         
         return donoDaCasa;
     }
-    
-    
     
     public List<DonoDaCasa> obterTodosDonos(){
         List<DonoDaCasa> donos = new ArrayList<DonoDaCasa>();
