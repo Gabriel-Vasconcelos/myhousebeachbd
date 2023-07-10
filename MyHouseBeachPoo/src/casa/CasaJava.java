@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author conta
  */
 public class CasaJava {
-    public static void menuInicialCasa(Scanner scanner){
+    protected static void menuInicialCasa(Scanner scanner){
         while(true){
             System.out.println("Menu Inicial da Casa");
             scanner = new Scanner(System.in);
@@ -47,7 +47,7 @@ public class CasaJava {
        
     }
     
-    public static void listarCasas(Scanner scanner){
+    protected static void listarCasas(Scanner scanner){
         System.out.println("Lista das Casas:");
         System.out.println("--------");
         
@@ -65,7 +65,7 @@ public class CasaJava {
         }
     } 
     
-    public static void buscarCasa(Scanner scanner){
+    protected static void buscarCasa(Scanner scanner){
         System.out.println("Pesquisar por uma Casa de Praia");
         System.out.println("Entre com o ID:");
         int id = Integer.parseInt(scanner.nextLine());
@@ -80,7 +80,7 @@ public class CasaJava {
         }
     } 
     
-    public static void inserirCasa(Scanner scanner){
+    protected static void inserirCasa(Scanner scanner){
         System.out.println("Insira uma Nova Casa");
         
         System.out.println("Digite o ID da Casa");

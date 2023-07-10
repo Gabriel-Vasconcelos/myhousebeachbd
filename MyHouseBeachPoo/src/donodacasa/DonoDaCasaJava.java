@@ -23,7 +23,7 @@ import java.util.Scanner;
  */
 public class DonoDaCasaJava extends ClienteJava {
     
-    public static void menuInicialDonoDaCasa(Scanner scanner){
+    protected static void menuInicialDonoDaCasa(Scanner scanner){
         while(true){
             System.out.println("Menu Inicial do Dono da Casa");
             scanner = new Scanner(System.in);
@@ -89,7 +89,7 @@ public class DonoDaCasaJava extends ClienteJava {
         }
     }
     
-    public static void ListarDono(Scanner scanner){
+    protected static void ListarDono(Scanner scanner){
         System.out.println("Lista dos Donos de Casas:");
         System.out.println("--------");
         
@@ -108,7 +108,7 @@ public class DonoDaCasaJava extends ClienteJava {
         }
     }
     
-    public static void BuscarDono(Scanner scanner){
+    protected static void BuscarDono(Scanner scanner){
         System.out.println("Buscar por um Dono de Casa de Praia");
         System.out.println("Entre com o ID do Cliente Associado");
         int clienteId = Integer.parseInt(scanner.nextLine());
@@ -124,7 +124,7 @@ public class DonoDaCasaJava extends ClienteJava {
         }
     }
     
-    public static void ClienteDonoDaCasa(Scanner scanner){
+    protected static void ClienteDonoDaCasa(Scanner scanner){
         System.out.println("Associar Casa de Praia com o Cliente");
         
         System.out.println("Insira o ID da Casa de Praia ");

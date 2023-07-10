@@ -78,7 +78,7 @@ public class DonoDaCasaDAO extends ClienteDAO{
     }
     
     
-    public DonoDaCasa obterRelacaoDono(int ClientId){
+    protected DonoDaCasa obterRelacaoDono(int ClientId){
         DonoDaCasa donoDaCasa = null;
         
         try {
@@ -106,7 +106,7 @@ public class DonoDaCasaDAO extends ClienteDAO{
         return donoDaCasa;
     }
     
-    public List<DonoDaCasa> obterTodosDonos(){
+    protected List<DonoDaCasa> obterTodosDonos(){
         List<DonoDaCasa> donos = new ArrayList<DonoDaCasa>();
          
         try {

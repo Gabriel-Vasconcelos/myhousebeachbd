@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class CasaDAO extends Dao implements InterfaceDao {
     
-    public boolean inserir(int id, String titulo, int preco, int qtdQuarto, int qtdBanheiro, String foto, String endereco, String cidade, String estado){
+    protected boolean inserir(int id, String titulo, int preco, int qtdQuarto, int qtdBanheiro, String foto, String endereco, String cidade, String estado){
         boolean sucesso = false;
         
         try {

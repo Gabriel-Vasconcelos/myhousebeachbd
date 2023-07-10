@@ -118,7 +118,7 @@ public class TelefoneDAO extends Dao implements InterfaceDao {
        
     }
     
-    public boolean atualizar(int id, int ddd, int numero){
+    protected boolean atualizar(int id, int ddd, int numero){
         boolean sucesso = false;
         
         try {
@@ -142,7 +142,7 @@ public class TelefoneDAO extends Dao implements InterfaceDao {
         return sucesso;
     }
     
-    public boolean remover(int id){
+    protected boolean remover(int id){
         boolean sucesso = false;
         
         try{

@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author conta
  */
 public class TelefoneJava {
-    public static void menuInicialTelefone(Scanner scanner){
+    protected static void menuInicialTelefone(Scanner scanner){
         while(true){
             System.out.println("Menu Inicial do Telefone");
             scanner = new Scanner(System.in);
@@ -57,7 +57,7 @@ public class TelefoneJava {
     }
         
     
-    public static void inserirTelefone(Scanner scanner){
+    protected static void inserirTelefone(Scanner scanner){
         System.out.println("Inserir um novo telefone");
         
         System.out.println("Digite o ID do Cliente Associado");
@@ -82,7 +82,7 @@ public class TelefoneJava {
         }
     }
     
-    public static void buscarTelefone(Scanner scanner){
+    protected static void buscarTelefone(Scanner scanner){
         System.out.println("Pesquisar Telefone por um Cliente Associado");
         System.out.println("Entre com o ID do Cliente:");
         int id = Integer.parseInt(scanner.nextLine());
@@ -101,7 +101,7 @@ public class TelefoneJava {
         
     }
     
-    public static void listarTelefones(Scanner scanner){
+    protected static void listarTelefones(Scanner scanner){
         System.out.println("Lista dos Telefones");
         System.out.println("--------");
         
@@ -120,7 +120,7 @@ public class TelefoneJava {
     
     
     
-    public static void atualizarTelefone(Scanner scanner){
+    protected static void atualizarTelefone(Scanner scanner){
         System.out.println("Atualizar um Telefone existente");
         System.out.println("Entre com o ID do Telefone");
         int id = Integer.parseInt(scanner.nextLine());
@@ -141,7 +141,7 @@ public class TelefoneJava {
         }
     }
     
-    public static void removerTelefone(Scanner scanner){
+    protected static void removerTelefone(Scanner scanner){
         System.out.println("Remover um Telefone Existente");
         System.out.println("Entre com o ID:");
         int id = Integer.parseInt(scanner.nextLine());
